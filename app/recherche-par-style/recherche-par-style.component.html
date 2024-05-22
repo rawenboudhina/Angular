@@ -1,0 +1,36 @@
+<div class="container">
+
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4"> 
+        <label>Styles </label> 
+        <select class="form-control form-control-lg"   id="idStyle" name="idStyle"
+         [(ngModel)]="IdStyle" (change)="onChange()">
+          <option *ngFor="let style of styles" value="{{style.idStyle}}">
+               {{style.nomStyle}} 
+         </option>
+    </select> 
+   </div>
+
+
+   
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr> <th>Id</th><th>Nom</th> <th>Prix</th>  <th>Date Création</th><th>Catégorie</th> </tr>
+                </thead>
+                <tbody *ngFor="let plat of plats">
+                    <tr>
+                        <td>{{plat.idPlat}}</td>
+                        <td>{{plat.nomPLat}}</td>
+                        <td>{{plat.prixPLat}}</td>
+                        <td>{{plat.dateCreation | date:'dd/MM/yyyy'}}</td>
+                        <td>{{plat.style.nomStyle}}</td> 
+                       <!--  <td><a class="btn btn-danger" (click)="supprimerProduit(produit)">Supprimer</a></td>
+                        <td><a class="btn btn-success" [routerLink]="['/updateProduit',produit.idProduit]">Modifier</a></td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

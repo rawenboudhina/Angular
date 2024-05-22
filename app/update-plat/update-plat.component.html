@@ -1,0 +1,37 @@
+<div class="container">
+    <div>
+        <h2>Modifier un Plat :</h2>
+    </div>
+    <form>
+        <div  class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Produit</label>
+            <input readonly type="text" [(ngModel)]="currentPlat.idPlat" name="idPlat" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Produit</label>
+            <input type="text" [(ngModel)]="currentPlat.nomPLat" name="nomPLat" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix Produit</label>
+            <input type="number" [(ngModel)]="currentPlat.prixPLat" name="prixPLat" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date création</label>
+            <input type="date" [ngModel]="currentPlat.dateCreation | date: 'yyyy-MM-dd'" 
+            (ngModelChange)=" currentPlat.dateCreation= $event" name="dateCreation"  class="form-control">
+        </div>
+
+         <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Style</label>
+            <select class="form-control form-control-lg" id="idStyle" name="idStyle" [(ngModel)]="updatedStyleId">
+                <option *ngFor="let style of styles" [value]="style.idStyle">
+                    {{style?.nomStyle}}
+                </option>  
+            </select>
+        </div> 
+
+        <div class="mt-2">
+            <button type="submit" (click)="updatePlat()" class="btn btn-success">Modifer</button>
+        </div>
+    </form>
+</div>
